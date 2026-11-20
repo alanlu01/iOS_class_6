@@ -1,0 +1,43 @@
+name: PicnicDay
+options:
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+targets:
+  PicnicDay:
+    type: application
+    platform: iOS
+    sources:
+      - PicnicDay
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: tw.alanlu01.PicnicDay
+        TARGETED_DEVICE_FAMILY: "1,2"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: 野餐日和
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MARKETING_VERSION: 1.0
+        CURRENT_PROJECT_VERSION: 1
+  PicnicDayUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - PicnicDayUITests
+    dependencies:
+      - target: PicnicDay
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: tw.alanlu01.PicnicDay.UITests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  PicnicDay:
+    build:
+      targets:
+        PicnicDay: all
+        PicnicDayUITests: [test]
+    test:
+      targets:
+        - PicnicDayUITests
